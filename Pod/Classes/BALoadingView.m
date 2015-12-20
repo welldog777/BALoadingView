@@ -54,6 +54,10 @@
     _lineCap = lineCapStyle;
 }
 
+- (void)setFading:(bool)fading {
+    _fading = fading;
+}
+
 #pragma mark - Private
 
 - (void)startTimer {
@@ -136,6 +140,12 @@
         CAShapeLayer *layer = [CAShapeLayer layer];
         layer.frame = self.bounds;
         layer.lineWidth=self.lineWidth;
+
+        //Added to implement transparent fading
+        if (_fading) {
+            int iterations = (CGRectGetWidth(self.frame)/2 - center.lineWidth+self.buffer)/(self.lineWidth+self.buffer);
+            layer.opacity = 1.0/(iterations+1) * (i+1);
+        }
         
         UIBezierPath *linePath =[UIBezierPath bezierPathWithArcCenter:CGPointMake(CGRectGetWidth(self.frame)/2, CGRectGetHeight(self.frame)/2) radius:self.lineWidth+self.buffer+i*(layer.lineWidth + self.buffer) + layer.lineWidth/2 startAngle:M_PI endAngle:0 clockwise:YES];
         [linePath setLineCapStyle:kCGLineCapRound];

@@ -52,6 +52,10 @@ typedef NS_ENUM(NSInteger,BACircleAnimation) {
  */
 @property (assign, nonatomic) NSString *lineCap;
 
+/**
+ Enabled the fading transparency of segments
+ */
+@property (assign, nonatomic) bool fading;
 
 /**
 Initializes the segments.

@@ -26,7 +26,7 @@ Pod::Spec.new do |s|
   s.author           = { "Bryan Antigua" => "antigua.b@gmail.com" }
   s.source           = { :git => "https://github.com/antiguab/BALoadingView.git", :tag => s.version.to_s }
 
-  s.platform     = :ios, '8.4'
+  s.platform     = :ios, '7.0'
   s.requires_arc = true
 
   s.source_files = 'Pod/Classes/**/*'
